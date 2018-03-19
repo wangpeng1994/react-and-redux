@@ -14,7 +14,7 @@ class Counter extends Component {
     this.onClickDecrementButton = this.onClickDecrementButton.bind(this);
 
     this.state = {
-      count: props.initValue
+      count: props.initValue || 0 // 更推荐使用 defaultProps 默认值功能
     }
   }
 
@@ -30,17 +30,19 @@ class Counter extends Component {
 
   componentWillReceiveProps(nextProps) {
     console.log('enter componentWillReceiveProps ' + this.props.caption)
+
   }
 
   componentWillMount() {
     console.log('enter componentWillMount ' + this.props.caption);
   }
-
+ 
   componentDidMount() {
     console.log('enter componentDidMount ' + this.props.caption);
   }
 
   onClickIncrementButton() {
+    // this.state.count += 1;
     this.setState({count: this.state.count + 1});
   }
 
@@ -55,6 +57,7 @@ class Counter extends Component {
 
   render() {
     console.log('enter render ' + this.props.caption);
+    console.log('this.state.count', this.state.count);
     const {caption} = this.props;
     return (
       <div>
