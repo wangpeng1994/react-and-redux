@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import * as Actions from '../Actions.js';
+import * as Actions from '../Actions.js'; // 为了产生并派发action动作对象
 import CounterStore from '../stores/CounterStore.js';
 
 const buttonStyle = {
@@ -27,6 +27,7 @@ class Counter extends Component {
   }
 
   componentDidMount() {
+    // 监听CounterStore的变化
     CounterStore.addChangeListener(this.onChange);
   }
 

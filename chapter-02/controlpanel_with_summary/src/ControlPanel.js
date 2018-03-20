@@ -12,7 +12,7 @@ class ControlPanel extends Component {
 
     this.onCounterUpdate = this.onCounterUpdate.bind(this);
 
-    this.initValues = [ 0, 10, 20];
+    this.initValues = [ 0, 10, 20]; // 这是为了第一次渲染时，就要展示sum的默认值
 
     const initSum = this.initValues.reduce((a, b) => a+b, 0);
     this.state = {

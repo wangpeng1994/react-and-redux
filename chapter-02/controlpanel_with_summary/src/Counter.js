@@ -18,8 +18,8 @@ class Counter extends Component {
   }
 
   onClickIncrementButton() {
-    this.updateCount(true);
-  }
+    this.updateCount(true); // 这两个增减函数，是可以在类的定义中通过this调用的，因为构造函数中使用了 super()
+  } // 而render中的this不会自动绑定，所以需要在构造函数中绑定，或者每次使用都绑定this
 
   onClickDecrementButton() {
     this.updateCount(false);
@@ -53,7 +53,7 @@ Counter.propTypes = {
 
 Counter.defaultProps = {
   initValue: 0,
-  onUpdate: f => f //什么都不做的函数
+  onUpdate: f => f //默认是什么都不做的函数，随后传过来实际的函数
 };
 
 export default Counter;
