@@ -15,8 +15,7 @@ class Counter extends Component {
     this.onDecrement = this.onDecrement.bind(this);
     this.onChange = this.onChange.bind(this);
     this.getOwnState = this.getOwnState.bind(this);
-
-    this.state = this.getOwnState();
+    this.state = this.getOwnState(); // 在constructor中可以使用this调用，在之外的地方调用类中的函数，需要先bind(this)
   }
 
   getOwnState() {
@@ -25,7 +24,7 @@ class Counter extends Component {
     };
   }
 
-  onIncrement() {
+  onIncrement() { // 改变store唯一办法就是派发action
     store.dispatch(Actions.increment(this.props.caption));
   }
 
@@ -42,11 +41,11 @@ class Counter extends Component {
       (nextState.value !== this.state.value);
   }
 
-  componentDidMount() {
-    store.subscribe(this.onChange);
+  componentDidMount() { // 这里的订阅写在构造函数中也是可以的
+    store.subscribe(this.onChange); // 订阅store，有变化后就重新获取
   }
 
-  componentWillUnmount() {
+  componentWillUnmount() { // 绑定和清除，上下对应
     store.unsubscribe(this.onChange);
   }
 
