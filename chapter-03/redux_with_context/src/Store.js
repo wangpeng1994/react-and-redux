@@ -9,4 +9,4 @@ const initValues = {
 
 const store = createStore(reducer, initValues);
 
-export default store;
+export default store;  // Redux对store封装的很好，所以禁止直接修改状态

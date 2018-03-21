@@ -2,7 +2,7 @@ import {PropTypes, Component} from 'react';
 
 class Provider extends Component {
 
-  getChildContext() {
+  getChildContext() { // context provider 必须
     return {
       store: this.props.store
     };
@@ -18,7 +18,7 @@ Provider.propTypes = {
   store: PropTypes.object.isRequired
 }
 
-Provider.childContextTypes = {
+Provider.childContextTypes = { // context provider 必须
   store: PropTypes.object
 };
 
