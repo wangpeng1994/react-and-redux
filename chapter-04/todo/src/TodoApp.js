@@ -1,5 +1,5 @@
 import React from 'react';
-import { view as Todos } from './todos/';
+import { view as Todos } from './todos/'; // 会自动找到目录下的index.js接口文件
 import { view as Filter } from './filter/';
 function TodoApp() {
   return (

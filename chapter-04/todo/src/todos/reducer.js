@@ -13,5 +13,22 @@ export default (state = [], action) => {
         ...state  // 还可以考虑使用concat，不过没有扩展操作符简洁
       ]
     }
+    case TOGGLE_TODO: {
+      return state.map((todoItem) => {
+        if (todoItem.id === action.id) {
+          return { ...todoItem, completed: !todoItem.completed }; // 修改指定的item的完成状态，进行取反
+        } else {
+          return todoItem; // 其余原样返回，最终是一个和原来数组等长对应的新数组
+        }
+      })
+    }
+    case REMOVE_TODO: {
+      return state.filter((todoItem) => {
+        return todoItem.id !== action.id;
+      })
+    }
+    default: { // 默认值的作用：1. 第一次是给state初值，此后如果是filter字段
+      return state;      
+    }
   }
 }
