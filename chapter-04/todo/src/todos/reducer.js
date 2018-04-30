@@ -27,7 +27,7 @@ export default (state = [], action) => {
         return todoItem.id !== action.id;
       })
     }
-    default: { // 默认值的作用：1. 第一次是给state初值，此后如果是filter字段
+    default: { // 默认值的作用：1. 未匹配到就原样返回state；2.不感兴趣的action也可能会传进来
       return state;      
     }
   }

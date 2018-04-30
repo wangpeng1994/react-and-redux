@@ -11,7 +11,7 @@ const TodoList = ({ todos, onToggleTodo, onRemoveTodo }) => {
   return ( // 定义在形参里，就不用 this.props 来使用了
     <ul className="todo-list">
       {
-        todos.map((item) => {
+        todos.map((item) => (
           <TodoItem
             key={item.id}
             text={item.text}
@@ -19,7 +19,7 @@ const TodoList = ({ todos, onToggleTodo, onRemoveTodo }) => {
             onToggle={() => onToggleTodo(item.id)}
             onRemove={() => onRemoveTodo(item.id)}
           />
-        })
+        ))
       }
     </ul>
   )
