@@ -15,4 +15,8 @@ AddUserProp.propTypes = {
 
 export default AddUserProp;
 
+// 用法：
+<AddUserProp>
+  {user => <div>{user}</div>}
+</AddUserProp>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const onlyForLoggedinHOC = (WrappedComponent) => {
+const onlyForLoggedInHOC = (WrappedComponent) => {
   return class NewComponent extends WrappedComponent {
     render() {
       if (this.props.loggedIn) {
