@@ -10,6 +10,11 @@ class TodoItem extends React.Component {
     console.log('enter TodoItem constructor: ' + this.props.text);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return (nextProps.completed !== this.props.completed) || 
+      (nextProps.text !== this.props.text);
+  }
+
   render() {
     const {onToggle, onRemove, completed, text } = this.props;
 
