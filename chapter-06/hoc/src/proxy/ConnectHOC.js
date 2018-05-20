@@ -20,13 +20,15 @@ function connect(mapStateToProps=doNothing, mapDispatchToProps=doNothing) {
         this.store = {};
       }
 
-      /*
       //TODO: make a workable shouldComponentUpdate
       shouldComponentUpdate(nextProps, nextState) {
         for (const propType in nextProps) {
+          // 如果当前的属性（context申请到的store属性）是nextProps中自带的非继承属性
           if (nextProps.hasOwnProperty(propType)) {
+            // 并且这个新的属性没有改变
             if (nextProps[propType] === this.props[propType]) {
-              return true;
+              // 那么不应该更新组件
+              return false;
             }
           }
         }
@@ -34,14 +36,13 @@ function connect(mapStateToProps=doNothing, mapDispatchToProps=doNothing) {
         for (const propType in this.props) {
           if (this.props.hasOwnProperty(propType)) {
             if (nextProps[propType] === this.props[propType]) {
-              return true;
+              return false;
             }
           }
         }
 
-        return false;
+        return true;
       }
-      */
 
       componentDidMount() {
         this.context.store.subscribe(this.onChange);

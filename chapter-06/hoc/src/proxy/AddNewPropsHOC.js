@@ -9,3 +9,6 @@ const addNewProps = (WrappedComponent, newProps) => {
 }
 
 export default addNewProps;
+
+
+// const newComponetWithNewProps = addNewProps(myComponent, { name: 'peng' });

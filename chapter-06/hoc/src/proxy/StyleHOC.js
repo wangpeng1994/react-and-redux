@@ -5,7 +5,7 @@ const styleHOC = (WrappedComponent, style) => {
     render() {
       return (
         <div style={style}>
-          <WrappedComponent {...this.props}/>
+          <WrappedComponent {...this.props} />
         </div>
       );
     }
@@ -15,3 +15,17 @@ const styleHOC = (WrappedComponent, style) => {
 export default styleHOC;
 
 
+const styleHOC = (WrappedComponent, style) => {
+  return class HOCComponent extends React.Component {
+    render() {
+      return (
+        <div style={style}>
+          <WrappedComponent {...this.props} />
+        </div>
+      )
+    }
+  }
+}
+
+const style = { color: 'red' };
+const newComponnet = styleHOC(uglyComponent, style);

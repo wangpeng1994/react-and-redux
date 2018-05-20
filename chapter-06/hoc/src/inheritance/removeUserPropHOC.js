@@ -26,3 +26,5 @@ function removeUserProp(WrappedComponent) {
 */
 
 export default removeUserProp;
+
+
